@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "90500fa0-c946-4b00-89fc-36932ba5771b",
+		"name": "Calls Api For Tickets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28141996"
+	},
+	"item": [
+		{
+			"name": "errors",
+			"item": [
+				{
+					"name": "Create ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"topic\": \"\",\n  \"text\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/tickets"
+					},
+					"response": []
+				},
+				{
+					"name": "Take to work",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/api/tickets/invalid-id/take-to-work"
+					},
+					"response": []
+				},
+				{
+					"name": "Complete ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/api/tickets/67b92daca0dbfeb03154910b/complete"
+					},
+					"response": []
+				},
+				{
+					"name": "Canceled ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/api/tickets/67b92daca0dbfeb03154910b/cancel"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"topic\": \"Проблема\",\r\n  \"text\": \"Не могу войти\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/tickets",
+				"description": "Generated from cURL: curl -X POST http://localhost:3000/api/tickets \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"topic\": \"Проблема с доступом\",\r\n  \"text\": \"Не могу войти в систему\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Take to work",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/tickets/67b92daca0dbfeb03154910b/take-to-work",
+				"description": "Generated from cURL: curl -X PUT http://localhost:3000/api/tickets/64f1b2b3e4b0a1b2c3d4e5f6/take-to-work"
+			},
+			"response": []
+		},
+		{
+			"name": "Complete ticket",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"solution\": \"Проблема решена\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/tickets/67b92daca0dbfeb03154910b/complete",
+				"description": "Generated from cURL: curl -X PUT http://localhost:3000/api/tickets/64f1b2b3e4b0a1b2c3d4e5f6/complete \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"solution\": \"Проблема решена, доступ восстановлен\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Canceled ticket",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cancellationReason\": \"Обращение дублируется\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/tickets/67b92daca0dbfeb03154910b/cancel",
+				"description": "Generated from cURL: curl -X PUT http://localhost:3000/api/tickets/64f1b2b3e4b0a1b2c3d4e5f6/cancel \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"cancellationReason\": \"Обращение дублируется\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get tickets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tickets?startDate=2025-01-01&endDate=2026-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2026-01-01"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"http://localhost:3000/api/tickets?startDate=2023-09-01&endDate=2023-09-30\""
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel all",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:3000/api/tickets/cancel-all-in-progress",
+				"description": "Generated from cURL: curl -X POST http://localhost:3000/api/tickets/cancel-all-in-progress"
+			},
+			"response": []
+		}
+	]
+}
